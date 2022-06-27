@@ -1,7 +1,3 @@
-def get_project_root():
-    from pathlib import Path
-    return Path(__file__).parent.parent.parent
-
 def create_data_lake():
     
     """Cree el data lake con sus capas.
@@ -28,20 +24,18 @@ def create_data_lake():
     """
 
     import os
+    os.mkdir('./data_lake/')
+    parent_dir = 'data_lake/'
+    carpetas = ['landing', 'raw', 'cleansed', 'business']
+    [os.mkdir(os.path.join(parent_dir, c)) for c in carpetas]
+    parent_dir = 'data_lake/business/'
+    carpetas = ['reports', 'features', 'forecasts']
+    [os.mkdir(os.path.join(parent_dir, c)) for c in carpetas]
+    parent_dir = 'data_lake/business/reports/'
+    directory = 'figures'
+    os.mkdir(os.path.join(parent_dir, directory))
 
-    parent_dir = get_project_root()
-
-    os.mkdir(os.path.join(parent_dir, "data_lake"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/landing"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/raw"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/cleansed"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/business"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/business/reports"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/business/reports/figures"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/business/features"))
-    os.mkdir(os.path.join(parent_dir, "data_lake/business/forecasts"))
-
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 if __name__ == "__main__":
     import doctest
