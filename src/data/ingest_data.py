@@ -12,35 +12,22 @@ def ingest_data():
     descarga debe realizarse usando únicamente funciones de Python.
 
     """
-    import pandas as pd
-    import xlwt
+    import requests
 
-    def download_archivo(ruta, file_name, extension):
-
-        for año in file_name:
-            url_rute = ruta + '/' + año + extension + "?raw=true"
-            nombre_archivo = "data_lake/landing/" + \
-                '{}{}'.format(año, extension)
-            descarga = pd.read_excel(url_rute)
-            descarga.to_excel("data_lake/landing/{}{}".format(año,
-                                                              extension), index=None, header=True)
-        return
-
-    ruta = "https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/"
-    file_name1 = [str(año) for año in range(1995, 2016)]
-    file_name2 = [str(año) for año in range(2018, 2022)]
-
-    file_name_xlsx = file_name1 + file_name2
-    download_archivo(ruta, file_name_xlsx, ".xlsx")
-
-    file_name_xls = ["2016", "2017"]
-    download_archivo(ruta, file_name_xls, ".xls")
+    for num in range(1995, 2022):
+        if num in range(2016, 2018):
+            url = 'https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/{}.xls?raw=true'.format(num)
+            file = requests.get(url, allow_redirects=True)
+            open('data_lake/landing/{}.xls'.format(num), 'wb').write(file.content)
+        else:
+            url = 'https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/{}.xlsx?raw=true'.format(num)
+            file = requests.get(url, allow_redirects=True)
+            open('data_lake/landing/{}.xlsx'.format(num), 'wb').write(file.content)
+    return
     
-    #raise NotImplementedError("Implementar esta función")
+    raise NotImplementedError("Implementar esta función")
 
 if __name__ == "__main__":
     import doctest
-
-    doctest.testmod()
-
     ingest_data()
+    doctest.testmod()
