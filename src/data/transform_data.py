@@ -14,13 +14,13 @@ def transform_data():
         if fec in range(2016, 2018):
             datos_csv = pd.read_excel('data_lake/landing/{}.xls'.format(fec), header=2)
             datos_csv = datos_csv.iloc[:, 0:25]
-            datos_csv.columns = ['Fecha', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+            datos_csv.columns = ['Fecha', 'H00', 'H01', 'H02', 'H03', 'H04', 'H05', 'H06', 'H07', 'H08', 'H09', 'H10','H11', 'H12', 'H13', 'H14', 'H15', 'H16', 'H17', 'H18', 'H19', 'H20', 'H21', 'H22', 'H23']
             datos_csv.to_csv ('data_lake/raw/{}.csv'.format(fec), index=None)
 
         else:
             datos_csv = pd.read_excel('data_lake/landing/{}.xlsx'.format(fec), header=2)
             datos_csv = datos_csv.iloc[:, 0:25]
-            datos_csv.columns = ['Fecha', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+            datos_csv.columns = ['Fecha', 'H00', 'H01', 'H02', 'H03', 'H04', 'H05', 'H06', 'H07', 'H08', 'H09', 'H10','H11', 'H12', 'H13', 'H14', 'H15', 'H16', 'H17', 'H18', 'H19', 'H20', 'H21', 'H22', 'H23']
             datos_csv.to_csv ('data_lake/raw/{}.csv'.format(fec), index=None)
     return
 
