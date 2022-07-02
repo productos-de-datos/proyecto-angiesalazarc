@@ -36,10 +36,12 @@ def transform_data():
             datos_csv.to_csv ('data_lake/raw/{}.csv'.format(fec), index=None)
     return
 
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
-    transform_data()
+    
     doctest.testmod()
+
+    transform_data()

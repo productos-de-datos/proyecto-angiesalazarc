@@ -25,9 +25,11 @@ def ingest_data():
             open('data_lake/landing/{}.xlsx'.format(num), 'wb').write(file.content)
     return
     
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 if __name__ == "__main__":
     import doctest
-    ingest_data()
+    
     doctest.testmod()
+
+    ingest_data()

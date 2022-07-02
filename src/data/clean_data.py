@@ -33,10 +33,12 @@ def clean_data():
 
     archivo.to_csv("data_lake/cleansed/precios-horarios.csv", index=None, header = True )
 
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
-    clean_data()
+    
     doctest.testmod()
+
+    clean_data()
