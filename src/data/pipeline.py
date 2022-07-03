@@ -11,6 +11,16 @@ En luigi llame las funciones que ya creo.
 
 
 """
+import ingest_data
+import transform_data
+import clean_data
+import compute_daily_prices
+import compute_monthly_prices
+import luigi
+
+from luigi import Task, LocalTarget
+
+
 
 if __name__ == "__main__":
 
