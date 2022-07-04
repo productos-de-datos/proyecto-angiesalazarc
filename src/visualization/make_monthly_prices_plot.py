@@ -18,7 +18,7 @@ def make_monthly_prices_plot():
     datos = pd.read_csv(data, index_col=None, sep=',', header=0)
     datos["fecha"] = pd.to_datetime(datos["fecha"])
 
-    x=datos.fecha
+    x=datos.fecha.sort_index()
     y=datos.precio
 
 #Especificar características del gráfico.
