@@ -28,7 +28,7 @@ def train_daily_model():
     
     clf.fit(X_train,y_train)
 
-    pickle.dump(clf, open('src/models/precios-diarios.pkl', 'wb'))
+    pickle.dump(clf, open('src/models/precios-diarios.pickle', 'wb'))
     
     #raise NotImplementedError("Implementar esta función")
 

@@ -35,7 +35,7 @@ def make_forecasts():
 
     clf.fit(X_train,y_train)
  
-    pickled_model = pickle.load(open('src/models/precios-diarios.pkl', 'rb'))
+    pickled_model = pickle.load(open('src/models/precios-diarios.pickle', 'rb'))
     ypred=pickled_model.predict(X_test)
 
     X_test=pd.DataFrame(X_test, columns = ['fecha'])
