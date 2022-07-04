@@ -1,7 +1,4 @@
-import shutil
-
-def make_features():
-    """Prepara datos para pronóstico.
+"""Prepara datos para pronóstico.
 
     Cree el archivo data_lake/business/features/precios-diarios.csv. Este
     archivo contiene la información para pronosticar los precios diarios de la
@@ -13,7 +10,14 @@ def make_features():
     En la carpeta notebooks/ cree los notebooks de jupyter necesarios para
     analizar y determinar las variables explicativas del modelo.
 
-    """
+"""
+
+import shutil
+
+def make_features():
+
+#Trasladar archivo con datos para realizar modelo.
+
     shutil.copy('data_lake/business/precios-diarios.csv',
                 'data_lake/business/features/precios-diarios.csv')
 

@@ -20,6 +20,9 @@ import luigi
 
 from luigi import Task, LocalTarget
 
+#Se genera tarea para correr las funciones realizadas anteriormente (ingesta, transformación y limpieza de datos).
+#para luego guardar el archivo en la ruta especificada.
+
 class IngestTransformClean(Task):
     def output(self):
         return LocalTarget("data_lake/cleansed/precios-horarios.csv")
@@ -28,6 +31,9 @@ class IngestTransformClean(Task):
         ingest_data.ingest_data()
         transform_data.transform_data()
         clean_data.clean_data()
+
+#Se genera tarea para correr las funciones realizadas para computar los precios pormedios diarios y mensuales,
+#tomando el resultado de la tarea anterior, y especificando la ruta donde debe guardar los archivos resultado.
 
 class Computes(Task):
     def requires(self):
@@ -45,8 +51,6 @@ class Computes(Task):
         compute_daily_prices.compute_daily_prices()
         compute_monthly_prices.compute_monthly_prices()
 
-
-#if __name__ == "__main__":
 
     #raise NotImplementedError("Implementar esta función")
 

@@ -1,6 +1,4 @@
-def create_data_lake():
-    
-    """Cree el data lake con sus capas.
+"""Cree el data lake con sus capas.
 
     Esta función debe crear la carpeta `data_lake` en la raiz del proyecto. El data lake contiene
     las siguientes subcarpetas:
@@ -20,10 +18,13 @@ def create_data_lake():
 
     ```
 
+"""
 
-    """
+def create_data_lake():
     
     import os
+
+    #Crear carpetas de data_lake con las rutas especificadas
 
     os.mkdir("data_lake")
     os.mkdir("data_lake/landing")

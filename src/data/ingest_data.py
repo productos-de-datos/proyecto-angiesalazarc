@@ -1,18 +1,19 @@
 """
 Módulo de ingestión de datos.
 -------------------------------------------------------------------------------
-
-"""
-
-def ingest_data():
-    """Ingeste los datos externos a la capa landing del data lake.
+    Ingeste los datos externos a la capa landing del data lake.
 
     Del repositorio jdvelasq/datalabs/precio_bolsa_nacional/xls/ descarge los
     archivos de precios de bolsa nacional en formato xls a la capa landing. La
     descarga debe realizarse usando únicamente funciones de Python.
+"""
 
-    """
+def ingest_data():
+
     import requests
+
+    #Descargar archivos de un repositorio Github, especificando la ruta. Se realiza de forma partida considerando
+    #que hay archivos en formatos xls y xlsx. Se especifica la ruta en donde deben quedar guardados.
 
     for num in range(1995, 2022):
         if num in range(2016, 2018):
