@@ -35,6 +35,12 @@ def clean_data():
 
     #raise NotImplementedError("Implementar esta función")
 
+def test_columns():
+
+    read_file = pd.read_csv(
+                'data_lake/cleansed/precios-horarios.csv')
+    assert ["fecha","hora","precio"] == list(read_file.columns.values)
+
 
 if __name__ == "__main__":
     import doctest
